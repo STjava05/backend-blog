@@ -1,0 +1,128 @@
+
+GET http://localhost:5051/user?page=2&limit=5
+
+#####
+
+POST http://localhost:5051/user/register HTTP/1.1
+Content-Type: application/json
+
+{
+   "category": "casa di campania",
+   "title": "Florence",
+   "email": "ziz@hotmail.it",
+   "password": "lifofifo",
+   "cover": "https://media.istockphoto.com/id/1203871251/it/foto/barche-della-polizia.webp?s=170667a&w=0&k=20&c=AzpQBtCl6vQWZjqZf90mzEa8PFaLa-B55O1z-nrml50=",
+   "readTime": {"value": 1},
+   "unit": "minute",
+    "author": {
+         "name": "grotta",
+         "avatar": "https://images.unsplash.com/photo-1688109509876-7398191132c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+       },
+    "content": "belle vue sur la mer"
+   }
+
+#####
+GET http://localhost:5051/user/64b10ba1b8893fec50a38da7
+
+#####
+DELETE http://localhost:5051/user/64c97b0bfe59315b38d84983
+
+#####
+
+PATCH  http://localhost:5051/user HTTP/1.1
+
+Content-Type: application/json
+
+#####
+
+DELETE http://localhost:5051/user/64b28c33159fb49bf3e7ac5b
+
+####
+Get http://localhost:5051/author
+
+####
+
+
+POST http://localhost:5051/author HTTP/1.1
+Content-Type: application/json
+
+{
+   "name": "picasso",
+   "surname": "gerard",
+   "email": "picasso@gmail.com",
+   "password": "ibouawa",
+   "cover": "https://images.unsplash.com/photo-1611095782768-4b0b2b0d9b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwY2FyZCUyMGF2YXRhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+   "dateOfBirth": "1990-01-01",
+   "avatar": "https://images.unsplash.com/photo-1611095782768-4b0b2b0d9b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwY2FyZCUyMGF2YXRhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+    "posts":""
+
+
+}
+
+####
+GET http://localhost:5051/post 
+
+####
+POST http://localhost:5051/post HTTP/1.1
+Content-Type: application/json
+
+{
+   "title": "la terre promise",
+   "text" : "le retour a nos encetrs",
+   "image": "https://images.unsplash.com/photo-1611095782768-4b0b2b0d9b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwY2FyZCUyMGF2YXRhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+   "author": "64c01f04606c502c5ff53d67",
+   "comments": ["64c02f13733191c98608a021"]
+}
+
+#######
+
+
+PATCH http://localhost:5051/post/64c0f2f9c505d094f13307fd HTTP/1.1
+Content-Type: application/json
+
+{
+   "title": "Afrique",
+   "text" : "le roi guerrier de empire du mali",
+   "image": "https://images.unsplash.com/photo-1611095782768-4b0b2b0d9b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwY2FyZCUyMGF2YXRhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+   "author": "64c01f04606c502c5ff53d67",
+   "comments": ["64c02f13733191c98608a021"]
+}
+
+
+
+
+
+####
+GET http://localhost:5051/comment
+
+####
+POST http://localhost:5051/comment HTTP/1.1
+Content-Type: application/json
+
+{
+   "content": "ce livre est un des plus grands best-sellers de tous les temps",
+   "rate": 5,
+   "author": ["64c0f2f9c505d094f13307fd"]
+}
+
+########
+POST http://localhost:5051/send HTTP/1.1
+Content-Type: application/json
+
+{
+   "email": "zeus@hotmail.it",
+   "message": "bonjour Monsieur",
+   "name": "zeus"
+}
+
+########
+
+POST http://localhost:5051/login HTTP/1.1
+Content-Type: application/json
+
+   {
+   "email": "ouzin@hotmail.it",
+   "password": "ouzin"
+   }
+
+
