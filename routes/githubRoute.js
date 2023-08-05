@@ -39,7 +39,7 @@ passport.use(new GithubStrategy({
 
 // Rotta per l'autenticazione con GitHub
 github.get('/auth/github', passport.authenticate('github', { scope: ['user:email'] }), (req, res) => {
-  const redirectUrl = `http://localhost:3000/success?user=${encodeURIComponent(
+  const redirectUrl = `${process.env.GTIHUB_FE_URL}/success?user=${encodeURIComponent(
     JSON.stringify(req.user)
   )}`;
 
@@ -53,7 +53,7 @@ github.get('/auth/github/callback', passport.authenticate('github', { failureRed
   const token = jwt.sign({ id: req.user.id }, process.env.JWT_KEY, { expiresIn: '1h' });
 
   // Costruisci l'URL di reindirizzamento con il token come parametro
-  const redirectUrl = `http://localhost:3000/success?token=${encodeURIComponent(token)}`;
+  const redirectUrl = `${process.env.GITHUB_FE_URL}/success?token=${encodeURIComponent(token)}`;
 
   // Reindirizza all'URL specificato dopo aver completato l'autenticazione con GitHub
   res.redirect(redirectUrl);
@@ -61,7 +61,7 @@ github.get('/auth/github/callback', passport.authenticate('github', { failureRed
 
 // Rotta per il reindirizzamento alla home dopo il completamento dell'autenticazione
 github.get('/success', (req, res) => {
-  res.redirect('http://localhost:3000/home');
+  res.redirect(`${process.env.GITHUB_FE_URL}/home`);
 });
 
 module.exports = github;
