@@ -29,7 +29,7 @@ const getAllUser = async (req, res, next) => {
 
         const totalUsers = await userModel.count(); // Calcola il numero totale di utenti
         const totalPages = Math.ceil(totalUsers / itemPerPage); // Calcola il numero totale di pagine
-       const user=await userModel.find()
+       const user=await userModel.find().sort({createdAt:'desc' })//ordina gli utenti in ordine decrescente di creazione
             .skip((itemPerPage * page) - itemPerPage) //salta gli utenti precedenti alla pagina corrente
             .limit(itemPerPage) ;
             res.status(200).json({ user, totalPages })                     // limita il numero di utenti per pagina
