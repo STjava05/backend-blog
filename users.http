@@ -8,9 +8,9 @@ Content-Type: application/json
 
 {
    "category": "user",
-   "title": "Roma",
-   "email": "lucap@gmail.com",
-   "password": "lamiapassword",
+   "title": "Firenze",
+   "email": "zeus@hotmail.it",
+   "password": "zeus",
    "cover": "https://media.istockphoto.com/id/1203871251/it/foto/barche-della-polizia.webp?s=170667a&w=0&k=20&c=AzpQBtCl6vQWZjqZf90mzEa8PFaLa-B55O1z-nrml50=",
    "readTime": {"value": 1},
    "unit": "minute",
@@ -25,7 +25,7 @@ Content-Type: application/json
 GET http://localhost:5051/user/64b10ba1b8893fec50a38da7
 
 #####
-DELETE http://localhost:5051/user/64c97ce0c2b6479c3102b69e
+DELETE http://localhost:5051/user/64d2123f3ca93297ffb1f042
 
 PATCH  http://localhost:5051/user/64c97cb3c2b6479c3102b699 HTTP/1.1
 
@@ -71,7 +71,7 @@ Content-Type: application/json
 
 {
    "title": "la terre promise",
-   "text" : "le retour a nos encetrs",
+   "text" : "le retour a nos encetres",
    "image": "https://images.unsplash.com/photo-1611095782768-4b0b2b0d9b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwY2FyZCUyMGF2YXRhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
    "author": "64c01f04606c502c5ff53d67",
    "comments": ["64c02f13733191c98608a021"]
