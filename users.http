@@ -8,9 +8,9 @@ Content-Type: application/json
 
 {
    "category": "user",
-   "title": "Firenze",
-   "email": "zeus@hotmail.it",
-   "password": "zeus",
+   "title": "Roma",
+   "email": "lucap@gmail.it",
+   "password": "lamiapassword",
    "cover": "https://media.istockphoto.com/id/1203871251/it/foto/barche-della-polizia.webp?s=170667a&w=0&k=20&c=AzpQBtCl6vQWZjqZf90mzEa8PFaLa-B55O1z-nrml50=",
    "readTime": {"value": 1},
    "unit": "minute",
@@ -20,6 +20,9 @@ Content-Type: application/json
        },
     "content": "belle vue sur la mer"
    }
+
+
+
 
 #####
 GET http://localhost:5051/user/64b10ba1b8893fec50a38da7
@@ -50,10 +53,10 @@ POST http://localhost:5051/author HTTP/1.1
 Content-Type: application/json
 
 {
-   "name": "luca",
+   "name": "luca maria",
    "surname": "pipitone",
-   "email":  "lucap@gmail.com",
-   "password": "lamiapassword",
+   "email":  "lucamp@gmail.com",
+   "password": "lamia",
    "cover": "https://images.unsplash.com/photo-1611095782768-4b0b2b0d9b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwY2FyZCUyMGF2YXRhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
    "dateOfBirth": "1990-01-01",
    "avatar": "https://images.unsplash.com/photo-1611095782768-4b0b2b0d9b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0JTIwY2FyZCUyMGF2YXRhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
@@ -137,7 +140,7 @@ POST http://localhost:5051/login HTTP/1.1
 Content-Type: application/json
 
    {
-   "email": "lucap@gmail.com",
+   "email": "lucap@gmail.it",
    "password": "lamiapassword"
    }
 
