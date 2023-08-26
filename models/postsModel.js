@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const userSchema = mongoose.Schema({
+const postSchema = mongoose.Schema({
     
     category: {
         type: String,
@@ -9,13 +9,7 @@ const userSchema = mongoose.Schema({
         type: String,
        
     },
-    email: {
-        type: String,
-    },
-
-    password: {
-        type: String,
-    },
+    
     cover: {
         type: String,
        
@@ -45,8 +39,8 @@ const userSchema = mongoose.Schema({
         
     },
 },
-{timestamps: true,strick: true}
+{timestamps: true}
 );
 
-module.exports = mongoose.model('User', userSchema, 'user');
+module.exports = mongoose.model('Post', postSchema, 'posts');
 

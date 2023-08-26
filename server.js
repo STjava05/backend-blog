@@ -14,11 +14,11 @@ db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
 // Routes
-const registerUserRouter = require('./routes/registerUserRoute');
+
 const commentsRouter = require('./routes/commentRoutes');
 const authorsRouter = require('./routes/authorRoutes');
 const postsRouter = require('./routes/postRoutes');
-const usersRouter = require('./routes/userRoutes');
+
 const { login } = require('./middleware/login');
 const { auth } = require('./middleware/auth');
 const sendMail = require('./controllers/sendMail');
@@ -30,11 +30,11 @@ const google = require('./routes/googleRoute');
 app.use('/login', login);
 app.use('/images', express.static('images'));
 
-app.use('/register', registerUserRouter);
+
 app.use('/comment', auth, commentsRouter);
 app.use('/post', auth, postsRouter);
 app.use('/author', auth, authorsRouter);
-app.use('/user', auth, usersRouter);
+
 app.use('/', sendMail);
 app.use('/', github);
 app.use('/', google);

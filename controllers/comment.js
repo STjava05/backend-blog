@@ -1,6 +1,6 @@
 
 const Comment = require('../models/commentModal');
-const post = require('../models/postModel');
+const Post = require('../models/postsModel');
 const author = require('../models/authorModel');
 const mongoose = require('mongoose');
 

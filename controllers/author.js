@@ -1,8 +1,8 @@
 
 
-
+const bcrypt = require('bcrypt');
 const Author = require('../models/authorModel');
-const Post = require('../models/postModel');
+const Post = require('../models/postsModel');
 const Comment = require('../models/commentModal');
 
 
@@ -12,7 +12,7 @@ const getAllAuthor = async (req, res) => {
     try {
         const authors = await Author.find()
         .populate('posts')
-        .populate('comments')
+       
         res.status(200).json(authors);
     } catch (error) {
         res.status(404).json({ message: error.message });
@@ -23,7 +23,7 @@ const getOneAuthor = async (req, res) => {
     try {
         const author = await Author.findById(req.params.id)
         .populate('posts')
-        .populate('comments')
+        
         res.status(200).json(author);
     } catch (error) {
         res.status(404).json({ message: error.message });
@@ -31,19 +31,40 @@ const getOneAuthor = async (req, res) => {
 }
 
 const createAuthor = async (req, res) => {
-    const authorData = req.body;
-    // Supponiamo che i postIds siano un array di ObjectId validi dei post associati all'autore
-    const postIds = [ ...authorData.posts ]; // Sostituisci con gli ID dei post reali
-   // Aggiungi i postIds all'array posts nell'oggetto authorData
-    authorData.posts = postIds
+  try {
+    
 
-    try {
-        const author = new Author(authorData);
-        await author.save();
-        res.status(201).json(author);
-    } catch (error) {
-        res.status(409).json({ message: error.message });
-    }
+    const authorToSave = new Author({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      dateOfBirth: req.body.dateOfBirth,
+      cover: req.body.cover,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    const author = await authorToSave.save();
+    res.status(201).json(author);
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
+
+
+
+
+  //   const authorData = req.body;
+  //   // Supponiamo che i postIds siano un array di ObjectId validi dei post associati all'autore
+  //   const postIds = [ ...authorData.posts ]; // Sostituisci con gli ID dei post reali
+  //  // Aggiungi i postIds all'array posts nell'oggetto authorData
+  //   authorData.posts = postIds
+
+  //   try {
+  //       const author = new Author(authorData);
+  //       await author.save();
+  //       res.status(201).json(author);
+  //   } catch (error) {
+  //       res.status(409).json({ message: error.message });
+  //   }
 }
 
 

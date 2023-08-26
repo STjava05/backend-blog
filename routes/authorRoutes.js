@@ -1,10 +1,11 @@
-const app = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const authorCtrl = require('../controllers/author');
 
-app.get('/', authorCtrl.getAllAuthor);
-app.post('/', authorCtrl.createAuthor);
-app.get('/:id', authorCtrl.getOneAuthor);
-app.patch('/:id', authorCtrl.updateAuthor);
-app.delete('/:id', authorCtrl.deleteAuthor);
+router.get('/', authorCtrl.getAllAuthor);
+router.post('/', authorCtrl.createAuthor);
+router.get('/:id', authorCtrl.getOneAuthor);
+router.patch('/:id', authorCtrl.updateAuthor);
+router.delete('/:id', authorCtrl.deleteAuthor);
 
-module.exports = app;
+module.exports = router;

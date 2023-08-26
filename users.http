@@ -9,8 +9,7 @@ Content-Type: application/json
 {
    "category": "user",
    "title": "ancona",
-   "email": "micky1901e@gmail.com",
-   "password": "stotestando",
+  
    "cover": "https://media.istockphoto.com/id/1203871251/it/foto/barche-della-polizia.webp?s=170667a&w=0&k=20&c=AzpQBtCl6vQWZjqZf90mzEa8PFaLa-B55O1z-nrml50=",
    "readTime": {"value": 1},
    "unit": "minute",
@@ -140,8 +139,19 @@ POST http://localhost:5051/login HTTP/1.1
 Content-Type: application/json
 
    {
-   "email": "micky1901e@gmail.com",
-   "password": "stotestando"
+   "email": "zeus@hotmail.it",
+   "password": "zeus"
    }
 
+########
 
+POST http://localhost:5051/register HTTP/1.1
+
+Content-Type: application/json
+
+{
+   "firstName": "zeus",
+   "lastName": "ouzin",
+   "email":  "zeus@hotmail.it",
+   "password": "lifo",
+}
