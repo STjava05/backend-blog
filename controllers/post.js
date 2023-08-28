@@ -46,19 +46,39 @@ const getOnePost = (req, res, next) => {
         .catch(err => { res.status(500).json({ error: err }); });
 }
 
-const updatePost = (req, res, next) => {
-    postsModel.findByIdAndUpdate(req.params.id, {
-        ...req.body, id: req.params.id
-    })
-        .then(user => { res.status(200).json(user); })
-        .catch(err => { res.status(500).json({ error: err }); });
+const updatePost =async (req, res, next) => {
+    try {
+        const post = await postsModel.findById(req.params.id);
+        if (post) {
+            const postToUpdate = {
+                ...req.body,
+                _id: req.params.id
+            }
+            const updatedPost = await postsModel.findByIdAndUpdate(req.params.id, postToUpdate, { new: true });
+            res.status(200).json(updatedPost);
+        } else {
+            res.status(404).json({ message: 'Post non trovato!' });
+        }
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+  
+
 }
 
-const deletePost = (req, res, next) => {
-    postsModel.findByIdAndDelete(req.params.id)
-        .then(user => { res.status(200).json(user); })
-        .catch(err => { res.status(500).json({ error: err }); });
 
+const deletePost = async (req, res, next) => {
+    try {   
+        const post = await postsModel.findById(req.params.id);
+        if (post) {
+            await postsModel.findByIdAndDelete(req.params.id);
+            res.status(200).json({ message: 'Post eliminato!' });
+        } else {
+            res.status(404).json({ message: 'Post non trovato!' });
+        }
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 }
 
 module.exports = { createPost, getAllPost, getOnePost, updatePost, deletePost };
